@@ -39,8 +39,18 @@ HEADERS = {"User-Agent": "Group17 aismadi@wisc.edu"}
 # Rate limit: SEC asks for ≤10 req/s; we use 0.15 s between calls to be safe
 REQUEST_DELAY = 0.15  # seconds
 
+# Embedding
+EMBEDDING_MODEL    = "text-embedding-3-small"  # primary (OpenAI)
+EMBEDDING_MODEL_OS = "sentence-transformers/all-MiniLM-L6-v2"  # open-source comparison
+EMBED_BATCH_SIZE   = 100   # chunks per API call (OpenAI max is 2048)
+
+# ChromaDB
+CHROMA_COLLECTION  = "sec_10k_filings"
+CHROMA_DISTANCE    = "cosine"   # cosine similarity for retrieval
+
 # Directories
 import os
-BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
-RAW_DIR    = os.path.join(BASE_DIR, "data", "raw")     # downloaded HTML filings
-CHUNKS_DIR = os.path.join(BASE_DIR, "data", "chunks")  # JSONL chunk files
+BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
+RAW_DIR     = os.path.join(BASE_DIR, "data", "raw")      # downloaded HTML filings
+CHUNKS_DIR  = os.path.join(BASE_DIR, "data", "chunks")   # JSONL chunk files
+CHROMA_DIR  = os.path.join(BASE_DIR, "data", "chromadb") # persistent ChromaDB storage
