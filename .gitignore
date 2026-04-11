@@ -1,0 +1,26 @@
+# Generated data — re-created by running the pipeline
+data/raw/
+data/chunks/
+data/chromadb/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+.virtual_documents/
+
+# macOS
+.DS_Store
+
+# Anaconda / env
+anaconda_projects/
+*.env
+.env
+
+# Old scratch files
+Untitled*.ipynb
+fetch.py
